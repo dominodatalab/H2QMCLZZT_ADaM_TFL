@@ -5,7 +5,7 @@ import sys
 import time
 import pprint
 import logging
-from controlled_execution import *
+#from controlled_execution import *
 
 """
 on each tick:
@@ -206,11 +206,11 @@ v0.1: just read the cfg file and submit commands. skip all validation, put respo
 if __name__ == '__main__':
     pipeline_cfg_path = sys.argv[1]
     if os.path.exists(pipeline_cfg_path):
-        cleanup_datasets()
+        #cleanup_datasets()
         dag = build_dag(pipeline_cfg_path)
         print(dag)
         pipeline_runner = PipelineRunner(dag)
         pipeline_runner.run()
-        full_cx()
+        #full_cx()
     else:
         sys.exit("Empty or missing config file")
