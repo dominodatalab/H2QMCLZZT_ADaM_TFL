@@ -80,8 +80,10 @@
 * extract the protocol and project type from the project name;
 * ==================================================================;
 %if %sysfunc(find(&__PROJECT_NAME.,_)) ge 1 %then %do;
+  %* protocol is everything before the first undedscore char;
   %let __PROTOCOL     = %scan(&__PROJECT_NAME.,1,'_');
-  %let __PROJECT_TYPE = %scan(&__PROJECT_NAME.,2,'_');
+  * project try is everything after the first underscore  ;
+  %let __PROJECT_TYPE = %substr(&__PROJECT_NAME.,%index(&__PROJECT_NAME.,_));
   %end;
 %else %do;
   %put %str(ER)ROR: Project Name (DOMINO_PROJECT_NAME) ill-formed. Expecting <PROTOCOL>_<TYPE> ;
@@ -93,7 +95,7 @@
 
 * SDTM ;
 * ------------------------------------------------------------------;
-%if %upcase(&__PROJECT_TYPE.) eq SDTM %then %do;
+%if %sysfunc(find(%upcase(&__PROJECT_TYPE.),SDTM)) ge 1 %then %do;
   * Local read/write access to SDTM and QC folders ;
   libname SDTM   "/mnt/data/SDTM";
   libname SDTMQC "/mnt/data/SDTMQC";
@@ -101,7 +103,7 @@
 
 * ADAM ;
 * ------------------------------------------------------------------;
-%if %upcase(&__PROJECT_TYPE.) eq ADAM %then %do;
+%if %sysfunc(find(%upcase(&__PROJECT_TYPE.),ADAM)) ge 1 %then %do;
   * imported read-only SDTM data, using the data cutoff date.. ;
   * ..to identify the correct snapshot to use ;
   libname SDTM "/mnt/imported/data/snapshots/SDTM/SDTM_&__DCUTDTC." access=readonly;
@@ -112,7 +114,7 @@
 
 * TFL ;
 * ------------------------------------------------------------------;
-%if %upcase(&__PROJECT_TYPE.) eq TFL %then %do;
+%if %sysfunc(find(%upcase(&__PROJECT_TYPE.),TFL)) ge 1 %then %do;
   * imported read-only access to ADaM folder;
   libname ADAM "/mnt/imported/data/ADAM" access=readonly;
   * local read/write for TFL datasets ;
