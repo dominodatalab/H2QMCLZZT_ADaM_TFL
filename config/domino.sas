@@ -45,8 +45,6 @@
 * PROGRAM HISTORY                                     fu                    
 *  2022-06-06  | Stuart.Malcolm  | Program created
 *  2022-09-21  | Stuart.Malcolm  | Fix for combo ADAM_TFL projects 
-* ----------------------------------------------------------------------------
-*  YYYYMMDD  |  username        | ..description of change..         
 *****************************************************************************/
 
 %macro __setup();
