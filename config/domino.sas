@@ -43,7 +43,8 @@
 * - Must be run on the Domino platform (assumes Domino environment vars)
 * ____________________________________________________________________________
 * PROGRAM HISTORY                                     fu                    
-*  2022-06-06  |   Stuart.Malcolm  | Program created
+*  2022-06-06  | Stuart.Malcolm  | Program created
+*  2022-09-21  | Stuart.Malcolm  | Fix for combo ADAM_TFL projects 
 * ----------------------------------------------------------------------------
 *  YYYYMMDD  |  username        | ..description of change..         
 *****************************************************************************/
