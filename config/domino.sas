@@ -101,6 +101,19 @@
   libname SDTMQC "/mnt/data/SDTMQC";
 %end;
 
+* TFL ;
+* ------------------------------------------------------------------;
+* tfl is defined before ADAM because this code block sets ADaM library ;
+* assuming that the project ONLY contains TFL and the ADaM is in an ;
+* external project and so uses the imported path ;
+%if %sysfunc(find(%upcase(&__PROJECT_TYPE.),TFL)) ge 1 %then %do;
+  * imported read-only access to ADaM folder;
+  libname ADAM "/mnt/imported/data/ADAM" access=readonly;
+  * local read/write for TFL datasets ;
+  libname TFL   "/mnt/data/TFL";
+  libname TFLQC "/mnt/data/TFLQC";
+%end;
+
 * ADAM ;
 * ------------------------------------------------------------------;
 %if %sysfunc(find(%upcase(&__PROJECT_TYPE.),ADAM)) ge 1 %then %do;
@@ -108,18 +121,10 @@
   * ..to identify the correct snapshot to use ;
   libname SDTM "/mnt/imported/data/snapshots/SDTM/SDTM_&__DCUTDTC." access=readonly;
   * local read/write acces to ADaM and QC folders;
+  * NOTE that combined ADAM and TFL projects, this will over-write the ADaM library ;
+  * defined in previous TFL code-block. This is as expected. ;
   libname ADAM   "/mnt/data/ADAM";
   libname ADAMQC "/mnt/data/ADAMQC";
-%end;
-
-* TFL ;
-* ------------------------------------------------------------------;
-%if %sysfunc(find(%upcase(&__PROJECT_TYPE.),TFL)) ge 1 %then %do;
-  * imported read-only access to ADaM folder;
-  libname ADAM "/mnt/imported/data/ADAM" access=readonly;
-  * local read/write for TFL datasets ;
-  libname TFL   "/mnt/data/TFL";
-  libname TFLQC "/mnt/data/TFLQC";
 %end;
 
 * RunAll ;
