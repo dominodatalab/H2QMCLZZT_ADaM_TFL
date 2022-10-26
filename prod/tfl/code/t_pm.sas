@@ -226,7 +226,7 @@ proc template;
 run;
 
 title; footnote;
-
+ods listing close;
 options orientation = landscape nodate nonumber;
 ods pdf file = "/mnt/artifacts/results/&outname..pdf" style = pdfstyle;
 ods escapechar = '|';
