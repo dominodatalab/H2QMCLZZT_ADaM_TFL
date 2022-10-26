@@ -180,13 +180,13 @@ data adsl2;
     when ("PLACEBO")                trt01pn = 0;
 	when ("XANOMELINE LOW DOSE")    trt01pn = 54;
 	when ("XANOMELINE HIGH DOSE")   trt01pn = 81;
-	otherwise put "WARN" "ING: check values " usubjid= trt01p=;
+	otherwise put "NO" "TE: check values " usubjid= trt01p=;
   end;
   select (upcase(trt01a));
     when ("PLACEBO")                trt01an = 0;
 	when ("XANOMELINE LOW DOSE")    trt01an = 54;
 	when ("XANOMELINE HIGH DOSE")   trt01an = 81;
-	otherwise put "WARN" "ING: check values " usubjid= trt01a=;
+	otherwise put "NO" "TE: check values " usubjid= trt01a=;
   end;
 
   * End of study status;
@@ -206,7 +206,7 @@ data adsl2;
 	  when ("PROTOCOL VIOLATION")            dcsreapl = "Protocol Violation";
 	  when ("STUDY TERMINATED BY SPONSOR")   dcsreapl = "Sponsor Decision";
 	  when ("WITHDRAWAL BY SUBJECT")         dcsreapl = "Withdrew Consent";
-	  otherwise put "WARN" "ING: check values " usubjid= dcsreas=;
+	  otherwise put "NO" "TE: check values " usubjid= dcsreas=;
     end;
   end;
 
@@ -374,7 +374,7 @@ data adamqc.adsl (label = "Subject-Level Analysis Dataset");
     AGE                   label = "Age"
     AGEGR1   length = $5  label = "Pooled Age Group 1"
     AGEGR1N               label = "Pooled Age Group 1 (N)"
-    AGEU     length = $5  label = "Age Units"
+    AGEU     length = $6  label = "Age Units"
     RACE     length = $78 label = "Race"
     RACEN                 label = "Race (N)"
     SEX      length = $1  label = "Sex"
@@ -388,7 +388,7 @@ data adamqc.adsl (label = "Subject-Level Analysis Dataset");
     COMP16FL length = $1  label = "Completers of Week 16 Population Flag"
     COMP26FL length = $1  label = "Completers of Week 26 Population Flag"
     DTHFL    length = $1  label = "Subject Death Flag"
-	DTHDTC   length = $10 label = "Date/Time of Death"
+	DTHDTC   length = $20 label = "Date/Time of Death"
     DTHDT                 label = "Date of Death"
     BMIBL                 label = "Baseline BMI (kg/m2)"
     BMIGR1   length = $6  label = "Pooled Baseline BMI Group 1"
