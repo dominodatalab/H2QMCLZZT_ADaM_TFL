@@ -182,8 +182,12 @@ class PipelineRunner:
 v0.1: just read the cfg file and submit commands. skip all validation, put responsibility on end-user. assume jobs are idempotent.
 """
 if __name__ == '__main__':
-    # pipeline_cfg_path = sys.argv[1]
-    pipeline_cfg_path = "jobs.cfg"
+    # Get config filename from command line..
+    # ..or default to jobs.cfg
+    try:
+        pipeline_cfg_path = sys.argv[1]
+    except:
+        pipeline_cfg_path = "jobs.cfg"
     dag = build_dag(pipeline_cfg_path)
     print(dag)
     pipeline_runner = PipelineRunner(dag)
