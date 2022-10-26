@@ -33,7 +33,7 @@ library(tidyverse)
 library(haven)
 
 #--------------------------- set working directory -----------------------------
-setwd("/mnt/imported/data/ADAM")
+setwd("/mnt/data/ADAM")
 
 #------------------------------- read in data ----------------------------------
 adlbhy <- read_sas("adlbhy.sas7bdat")

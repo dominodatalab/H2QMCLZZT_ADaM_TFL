@@ -35,7 +35,7 @@ library(survival)
 library(haven)
 
 #--------------------------- set working directory -----------------------------
-setwd("/mnt/imported/data/ADAM")
+setwd("/mnt/data/ADAM")
 
 #------------------------------- read in data ----------------------------------
 adtte <- read_sas("adtte.sas7bdat")
