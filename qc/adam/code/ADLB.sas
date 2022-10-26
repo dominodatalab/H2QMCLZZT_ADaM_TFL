@@ -528,5 +528,5 @@ run;
 **** END OF USER DEFINED CODE **;
 
 ********;
-%s_scanlog;
+*%s_scanlog;
 ********;
