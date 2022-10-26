@@ -288,10 +288,8 @@ proc template;
 	end;
 run;
 
-
+ods listing close;
 options orientation=landscape ;
-ods listing close;
-ods listing close;
 ods pdf file = "/mnt/artifacts/results/&outname..pdf" style = pdfstyle;
 ods escapechar="~" ;
 
