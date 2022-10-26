@@ -109,7 +109,7 @@ run ;
 
 data rep1 ;
    set tran_: ;
-   length text $100 TRT1-TRT4 $100 ;
+   length text $200 TRT1-TRT4 $100 ;
    if _NAME_='ittfl2' then do ;text='Intent-to-treat set [a]'; order=1; end ;
    else if _NAME_='saffl2' then do ;text='Safety set [b]'; order=2; end ;
    else if _NAME_='efffl2' then do ;text='Efficacy set [c]'; order=4; end ;
@@ -248,7 +248,7 @@ data _null_ ;
 run ;
 
 data rep2 ;
-length text $100;
+length text $200;
    set rep1 
        no_trt2
        comp24 (drop= counttype complfl _name_ )
