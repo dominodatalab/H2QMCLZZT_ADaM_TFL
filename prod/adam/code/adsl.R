@@ -35,7 +35,7 @@ library(admiral)
 
 # Data
 
-address = paste0("/mnt/imported/data/snapshots/SDTM/SDTM_", Sys.getenv("DCUTDTC"))
+address = paste0("/mnt/imported/data/snapshots/SDTM/SDTM_2022-12-14") #, Sys.getenv("DCUTDTC"))
 datasets = c("dm","ex","ds","sv","qs","vs","sc","mh")
 
 for (dset_name in datasets){
