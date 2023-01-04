@@ -33,7 +33,9 @@
 *  YYYYMMDD  |  username        | ..description of change..         
 \*****************************************************************************/
 
-
-%include "!DOMINO_WORKING_DIR/config/domino.sas";
+%let foo=Hello;
+data _null_ ;
+  put "&foo World!";
+run ;
 
 * TEMP PLACEHOLDER PROGRAM THAT DOES NOTHING ;
