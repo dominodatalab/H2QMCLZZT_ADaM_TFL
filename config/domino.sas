@@ -74,7 +74,7 @@
 %let __PROJECT_NAME = %sysget(DOMINO_PROJECT_NAME);
 %let __DCUTDTC      = %sysget(DCUTDTC);
 * runtime check that e.g. DCUTDTC is not missing;
-%if &__DCUTDTC. eq %str() %then %put %str(ER)ROR: Envoronment Variable DCUTDTC not set;
+* %if &__DCUTDTC. eq %str() %then %put %str(ER)ROR: Envoronment Variable DCUTDTC not set;
 
 * ==================================================================;
 * extract the protocol and project type from the project name;
